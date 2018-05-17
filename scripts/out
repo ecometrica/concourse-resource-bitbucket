@@ -53,8 +53,9 @@ else:
 if debug:
     err("Commit: " + str(commit_sha))
 
-build_url = "{url}/pipelines/{pipeline}/jobs/{jobname}/builds/{buildname}".format(
+build_url = "{url}/teams/{teamname}/pipelines/{pipeline}/jobs/{jobname}/builds/{buildname}".format(
     url=os.environ['ATC_EXTERNAL_URL'],
+    teamname=os.environ['BUILD_TEAM_NAME'],
     pipeline=os.environ['BUILD_PIPELINE_NAME'],
     jobname=os.environ['BUILD_JOB_NAME'],
     buildname=os.environ['BUILD_NAME'],
